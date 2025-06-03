@@ -13,7 +13,10 @@ class AgeRestrictionError(yt_dlp.utils.DownloadError):
         self.original_query = original_query
 
 # --- Configuração ---
-TOKEN = "token"  # IMPORTANTE: Substitua e use variáveis de ambiente!
+import os
+TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("Token do Discord não encontrado na variável de ambiente DISCORD_BOT_TOKEN")"  # IMPORTANTE: Substitua e use variáveis de ambiente!
 COMMAND_PREFIX = "!"
 
 YDL_OPTS_DEFAULT = {
